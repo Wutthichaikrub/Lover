@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>รักแฟนนะ 💖</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Itim', cursive;
+  background: radial-gradient(circle at top, #ffdde1, #ee9ca7);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ff1493;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ff1493; }
+  100% { text-shadow: 0 0 20px #fff, 0 0 40px #ff69b4, 0 0 60px #ff1493; }
+}
+
+button {
+  margin-top: 30px;
+  background: linear-gradient(45deg, #ff6eb4, #ff1493);
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  font-size: 1.2em;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255,20,147,0.6);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(255,20,147,0.8);
+}
+
+/* Hearts floating */
+.heart {
+  position: absolute;
+  font-size: 25px;
+  animation: floatUp linear infinite;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
+}
+
+/* Sparkles */
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #fff, rgba(255,255,255,0));
+  border-radius: 50%;
+  animation: twinkle linear infinite;
+}
+
+@keyframes twinkle {
+  0% { transform: scale(0.5); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.5); opacity: 0; }
+}
+</style>
+</head>
+<body>
+<h1>ขอบคุณที่อยู่ด้วยกันนะ 💞<br>รักแฟนที่สุดเลย 💗</h1>
+<button onclick="window.location.href='index.html'">กลับไปดูความน่ารัก ⬅</button>
+
+<script>
+// Hearts
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (20 + Math.random() * 30) + "px";
+  heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 8000);
+}
+setInterval(createHeart, 400);
+
+// Sparkles
+function createSparkle() {
+  const sparkle = document.createElement("div");
+  sparkle.classList.add("sparkle");
+  sparkle.style.left = Math.random() * 100 + "vw";
+  sparkle.style.top = Math.random() * 100 + "vh";
+  sparkle.style.width = sparkle.style.height = (3 + Math.random() * 5) + "px";
+  sparkle.style.animationDuration = (1 + Math.random() * 2) + "s";
+  document.body.appendChild(sparkle);
+  setTimeout(() => sparkle.remove(), 3000);
+}
+setInterval(createSparkle, 200);
+</script>
+</body>
+</html>

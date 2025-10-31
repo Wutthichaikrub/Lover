@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>รู้จักแฟนดีแค่ไหน 😘</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+body {
+  font-family: 'Itim', cursive;
+  background: linear-gradient(120deg, #ffe4e1, #ffb6c1);
+  text-align: center;
+  color: #ff69b4;
+  padding: 30px;
+}
+h1 {
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px #fff;
+}
+.question {
+  margin: 30px auto;
+  background: white;
+  border-radius: 25px;
+  padding: 25px;
+  width: 85%;
+  max-width: 550px;
+  box-shadow: 0 6px 15px rgba(255,105,180,0.4);
+  font-size: 1.3em;
+  animation: fade 0.5s ease;
+}
+button {
+  background-color: #ff69b4;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 25px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: 0.3s;
+}
+button:hover {
+  transform: scale(1.05);
+  background-color: #ff85c1;
+}
+@keyframes fade {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+footer {
+  margin-top: 30px;
+}
+</style>
+</head>
+<body>
+
+<h1>💕 รู้จักแฟนดีแค่ไหน 💕</h1>
+<p>ตอบคำถามนี้ด้วยกัน หรือผลัดกันตอบก็ได้นะ 😚</p>
+
+<div class="question" id="quiz">
+  <p id="questionText">พร้อมยัง~ กด "สุ่มคำถาม" ได้เลย 💞</p>
+</div>
+
+<div>
+  <button onclick="nextQuestion()">🎲 สุ่มคำถาม</button>
+</div>
+
+<footer>
+  <button onclick="window.location.href='message.html'">⬅ กลับ</button>
+  <button onclick="window.location.href='ending.html'">ต่อไป ➜</button>
+</footer>
+
+<script>
+const questions = [
+  "ใครเป็นคนงอนบ่อยกว่า? 😆",
+  "ถ้าไปเที่ยวด้วยกัน จะเลือกทะเล 🌊 หรือภูเขา 🏔️?",
+  "ใครชอบบอกรักก่อน ❤️",
+  "ชอบดูหนังหรือซีรีส์ด้วยกันมากกว่า? 🎬",
+  "ของขวัญที่อยากได้จากแฟนคืออะไร 🎁",
+  "เพลงที่ทำให้นึกถึงกันคือเพลงอะไร 🎶",
+  "ใครเป็นคนกินจุที่สุด 🍔",
+  "เวลาว่างชอบทำอะไรด้วยกัน 💕",
+  "ใครชอบแกล้งอีกฝ่ายมากกว่า 😜",
+  "วันแรกที่เจอกัน ใครพูดก่อน 💬",
+  "แฟนชอบสีอะไรที่สุด 🎨",
+  "คำพูดที่แฟนชอบฟังที่สุดคืออะไร 💖",
+  "ถ้ามีเวลาว่าง 1 วัน อยากไปเดทที่ไหน 🥰",
+  "ใครมักจะขอโทษก่อนเวลาไม่เข้าใจกัน 🤗",
+  "ระหว่างกอด 🤗 กับหอม 💋 ชอบแบบไหนมากกว่า?",
+  "ของกินที่อีกคนชอบที่สุดคืออะไร 🍜🍕",
+  "ใครเป็นคนขี้เขินกว่ากัน 😳",
+  "ถ้าต้องเลือกชื่อเล่นใหม่ให้แฟน จะตั้งว่าอะไร? 😝",
+  "สิ่งเล็กๆ น่ารักที่แฟนทำแล้วใจละลายคืออะไร 💞",
+  "จำวันครบรอบได้ไหมเอ่ย~ 💫"
+];
+
+function nextQuestion() {
+  const random = Math.floor(Math.random() * questions.length);
+  document.getElementById("questionText").innerText = questions[random];
+}
+</script>
+
+</body>
+</html>

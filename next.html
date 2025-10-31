@@ -1,199 +1,116 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>💖 เซอร์ไพรส์แฟน 💖</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แฟนดูหน้านี้สิ 💗</title>
   <style>
-    :root {
-      --bg1: #ffe5f1;
-      --bg2: #ffd6eb;
-      --accent: #ff6b9a;
-      --accent-dark: #ff4b7a;
-      --white: #fff;
-    }
-
-    * {
-      box-sizing: border-box;
-      font-family: "Segoe UI", "Noto Sans Thai", sans-serif;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 
     body {
+      font-family: 'Itim', cursive;
+      background: linear-gradient(135deg, #ffc0cb, #ffe4e1);
       margin: 0;
-      height: 100vh;
-      background: linear-gradient(180deg, var(--bg1), var(--bg2));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+      text-align: center;
+      color: #fff;
       overflow: hidden;
     }
 
     .container {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(255, 75, 122, 0.15);
-      width: min(900px, 95%);
-      padding: 30px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: center;
-      z-index: 10;
-      animation: fadeIn 1s ease both;
+      margin-top: 60px;
+      animation: fadeIn 2s ease;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.96);}
-      to { opacity: 1; transform: scale(1);}
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
 
-    /* Left: Image Section */
-    .photo-box {
-      background: linear-gradient(180deg, #fff0f7, #ffe3ee);
+    .photo-frame {
+      width: 280px;
+      height: 280px;
+      background-color: white;
       border-radius: 20px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: inset 0 0 20px rgba(255, 182, 200, 0.2);
+      margin: 20px auto;
+      box-shadow: 0 6px 15px rgba(255,105,180,0.4);
+      overflow: hidden;
     }
 
-    .photo-box img {
+    .photo-frame img {
       width: 100%;
-      max-width: 300px;
-      height: auto;
-      border-radius: 16px;
+      height: 100%;
       object-fit: cover;
-      box-shadow: 0 6px 18px rgba(255, 107, 154, 0.3);
     }
 
-    /* Right: Text Section */
-    .text-box {
-      text-align: center;
+    .caption {
+      color: #ff69b4;
+      font-size: 1.4em;
+      margin-bottom: 20px;
     }
 
-    .text-box h2 {
-      color: var(--accent);
-      font-size: clamp(26px, 4vw, 36px);
-      margin: 0 0 12px 0;
-    }
-
-    .text-box p {
-      color: #6b4c57;
-      font-size: 16px;
-      margin-bottom: 24px;
-      line-height: 1.6;
-    }
-
-    /* Buttons */
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
-      color: white;
+    button {
+      background-color: #ff69b4;
       border: none;
-      border-radius: 30px;
-      padding: 12px 24px;
-      font-weight: 700;
-      font-size: 16px;
+      color: white;
+      font-size: 1em;
+      padding: 10px 20px;
+      border-radius: 25px;
       cursor: pointer;
-      box-shadow: 0 8px 18px rgba(255, 75, 122, 0.25);
-      transition: transform 0.15s ease, box-shadow 0.2s ease;
+      margin: 5px;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(255, 75, 122, 0.25);
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(255,105,180,0.5);
     }
 
-    .btn:active {
-      transform: translateY(1px);
-    }
-
-    /* Floating Hearts Animation */
     .hearts {
-      position: absolute;
-      top: 0;
-      left: 0;
+      position: fixed;
+      bottom: 0;
       width: 100%;
       height: 100%;
       overflow: hidden;
-      pointer-events: none;
-      z-index: 0;
+      z-index: -1;
     }
 
-    .hearts span {
+    .heart {
       position: absolute;
-      display: block;
-      color: rgba(255, 107, 154, 0.4);
-      animation: float 6s linear infinite;
-      bottom: -20px;
-      font-size: 14px;
+      color: #fff;
+      animation: floatHearts 6s linear infinite;
+      font-size: 18px;
     }
 
-    @keyframes float {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-700px) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
+    @keyframes floatHearts {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1;}
+      100% { transform: translateY(-700px) rotate(360deg); opacity: 0;}
     }
   </style>
 </head>
 <body>
-
-  <!-- Floating Hearts -->
-  <div class="hearts" id="hearts"></div>
-
-  <!-- Content -->
   <div class="container">
-    <div class="photo-box">
-      <img src="https://i.imgur.com/G2xvZ2z.jpeg" alt="รูปน่ารักของเรา">
+    <h1>💖 นี่ไงที่อยากให้แฟนดู 💖</h1>
+    <div class="photo-frame">
+      <img src="DDna6.jpg" alt="cute photo">
     </div>
-    <div class="text-box">
-      <h2>💖 สำหรับแฟนสุดที่รัก 💖</h2>
-      <p>
-        ขอบคุณที่อยู่ข้างกันเสมอนะ  
-        ไม่ว่าจะวันไหน เธอคือความสุขเล็กๆ ของฉัน 🌷  
-        กดปุ่มข้างล่างสิ ยังมีอะไรน่ารักๆ อีกนะ 💌
-      </p>
-      <div class="buttons">
-        <button class="btn" onclick="alert('รักนะจุ๊บๆ 💕')">กดดูสิ 😚</button>
-        <button class="btn" onclick="window.location.href='index.html'">กลับหน้าแรก 🏠</button>
-      </div>
-    </div>
+    <p class="caption">รูปนี้น่ารักที่สุดเลย 😚</p>
+    <button onclick="window.location.href='index.html'">⬅ Back</button>
+    <button onclick="window.location.href='memory.html'">Go! ➜</button>
   </div>
 
+  <div class="hearts" id="hearts"></div>
+
   <script>
-    // generate floating hearts
-    const hearts = document.getElementById("hearts");
-    const emojis = ["❤", "💗", "💖", "💘", "💞", "💕"];
     function createHeart() {
-      const span = document.createElement("span");
-      span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-      span.style.left = Math.random() * 100 + "%";
-      span.style.fontSize = 12 + Math.random() * 20 + "px";
-      span.style.animationDuration = 4 + Math.random() * 4 + "s";
-      hearts.appendChild(span);
-      setTimeout(() => span.remove(), 7000);
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+      document.getElementById("hearts").appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
     }
     setInterval(createHeart, 400);
   </script>
-
 </body>
 </html>
