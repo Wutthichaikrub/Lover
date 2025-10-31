@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>เนื้อหา — Surprise!</title>
+  <style>
+    body{
+      margin:0; font-family: "Segoe UI", Roboto, "Noto Sans Thai", sans-serif;
+      display:flex;align-items:center;justify-content:center;
+      min-height:100vh; background: linear-gradient(180deg,#fff8fb,#fff);
+      color:#422c33;
+    }
+    .box{
+      width:min(760px,94%); padding:28px; border-radius:18px;
+      background:linear-gradient(180deg,#ffffff,#fff6fb);
+      box-shadow: 0 12px 30px rgba(80,40,80,0.06);
+      text-align:center;
+    }
+    h2{ margin:0 0 8px 0; color:#ff4b7a }
+    p{ margin:0 0 18px 0; color:#6b4c57 }
+    .back{
+      display:inline-block;padding:12px 18px;border-radius:12px;
+      background:#fff; border:2px solid #ffd3e4; cursor:pointer;
+      font-weight:700;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" role="region" aria-labelledby="pageTitle">
+    <h2 id="pageTitle">ยินดีด้วย 🎉</h2>
+    <p>นี่คือหน้าต่อไป — ใส่เนื้อหาเพิ่มเติมที่คุณต้องการได้เลย เช่น รูปภาพ ข้อความเพลงหรือข้อความโรแมนติกพิเศษ</p>
+
+    <div style="margin-top:18px;">
+      <button class="back" onclick="history.back()">← กลับไปหน้าแรก</button>
+    </div>
+  </div>
+</body>
+</html>
